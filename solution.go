@@ -1,12 +1,37 @@
 package square
 
-// Define custom int type to hold sides number and update CalcSquare signature by replacing #yourTypeNameHere#
+import (
+	"fmt"
+	"math"
+)
 
-// Define constants to represent 0, 3 and 4 sides.  Test uses mnemos: SidesTriangle(==3), SidesSquare(==4), SidesCircle(==0)
-// it's like:
-// CalcSquare(10.0, SidesTriangle)
-// CalcSquare(10.0, SidesSquare)
-// CalcSquare(10.0, SidesCircle)
+type intCustomType int //объявили кастомный тип типа int
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+const SidesTriangle intCustomType = 3 //объявили const кастомного типа intCustomType
+const SidesSquare intCustomType = 4
+const SidesCircle intCustomType = 0
+const pi float64 = math.Pi
+
+func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
+	if sidesNum == 0 {
+		return math.Pi * sideLen * sideLen
+		
+	} else if sidesNum == 3 {
+		return sideLen * sideLen * math.Sqrt(3) / 4
+		
+	} else if sidesNum == 4 {
+		return sideLen * sideLen
+		
+	} else {
+		return 0
+	}
+
+}
+
+func main() {
+	
+	fmt.Println(CalcSquare(10.0, SidesTriangle))
+	fmt.Println(CalcSquare(10.0, SidesSquare))
+	fmt.Println(CalcSquare(10.0, SidesCircle))
+	fmt.Println(CalcSquare(10.0, 7))
 }
